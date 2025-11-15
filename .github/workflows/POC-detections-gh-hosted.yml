@@ -1,4 +1,7 @@
 name: POC Detections
+
+permissions:
+  contents: write
 on:
   workflow_dispatch:
     inputs:
@@ -136,6 +139,9 @@ jobs:
          egress-policy: audit
     - name: Checkout code
       uses: actions/checkout@v3
+    - name: Append something to README
+      run: |
+        echo "Adding something extra to the README." >> README.md
     
     - name: Decode and print private key
       env:
